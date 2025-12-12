@@ -1,0 +1,47 @@
+<div class="w-full max-w-6xl mx-auto p-4">
+  <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+    <h1 class="text-2xl font-semibold prime-text">Chamados</h1>
+
+    <p-button
+      label="Novo Chamado"
+      icon="pi pi-plus"
+      iconPos="left"
+      (click)="goToCreate()"
+      [raised]="true"
+      variant="outlined"
+      severity="success"
+    ></p-button>
+  </header>
+
+  <p-table
+    [value]="filteredChamados()"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    [stripedRows]="true"
+    [showGridlines]="true"
+    [loading]="loading"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descrição</th>
+        <th>Categoria</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-chamado>
+      <tr>
+        <td>{{ chamado.id }}</td>
+        <td>{{ chamado.titulo }}</td>
+        <td>{{ chamado.descricao }}</td>
+        <td>{{ chamado.categoria }}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="4" class="text-center p-4 text-gray-500">Nenhum chamado encontrado.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "titulo": "Erro no sistema",
+    "descricao": "Usuário não consegue fazer login",
+    "categoria": "Suporte"
+  },
+  {
+    "id": 2,
+    "titulo": "Atualizar servidor",
+    "descricao": "Atualização pendente",
+    "categoria": "Infra"
+  }
+]

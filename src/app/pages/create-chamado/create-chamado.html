@@ -1,0 +1,68 @@
+<p-toast position="top-right"></p-toast>
+
+<div class="flex justify-center items-center min-h-screen">
+  <div class="p-card shadow-lg p-6 w-full max-w-md mx-auto bg-gray-800">
+    <h2 class="text-2xl font-bold text-center mb-6">Novo Chamado</h2>
+
+    <form class="p-fluid space-y-4">
+      <div class="p-field">
+        <label for="titulo" class="font-medium">Título</label>
+        <input
+          id="titulo"
+          type="text"
+          pInputText
+          [(ngModel)]="chamado.titulo"
+          name="titulo"
+          required
+          class="w-full mt-2"
+        />
+      </div>
+
+      <div class="p-field">
+        <label for="descricao" class="font-medium">Descrição</label>
+        <textarea
+          id="descricao"
+          pInputTextarea
+          class="w-full p-inputtext mt-2"
+          rows="4"
+          [(ngModel)]="chamado.descricao"
+          name="descricao"
+          required
+        ></textarea>
+      </div>
+
+      <div class="p-field">
+        <label for="categoria" class="font-medium">Categoria</label>
+        <p-autoComplete
+          id="categoria"
+          [(ngModel)]="chamado.categoria"
+          name="categoria"
+          [suggestions]="filteredCategorias"
+          (completeMethod)="filterCategoria($event)"
+          field="name"
+          [dropdown]="true"
+          placeholder="Selecione a categoria"
+          class="w-full"
+        ></p-autoComplete>
+      </div>
+
+      <div class="flex items-center gap-4 mt-4">
+        <p-button
+          (click)="cancel()"
+          label="Cancelar"
+          [raised]="true"
+          variant="outlined"
+          severity="danger"
+        />
+
+        <p-button
+          (click)="salvarChamado()"
+          label="Salvar"
+          [raised]="true"
+          variant="outlined"
+          severity="success"
+        />
+      </div>
+    </form>
+  </div>
+</div>
