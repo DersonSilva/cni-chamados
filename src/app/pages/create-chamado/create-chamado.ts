@@ -61,7 +61,7 @@ export class CreateChamado {
 
     setTimeout(() => {
       this.router.navigate(['/chamados']);
-    }, 1000);
+    }, 700);
   }
 
   cancel() {

@@ -6,10 +6,8 @@ import { ChamadoModel } from '../models/chamado.model';
 @Injectable({ providedIn: 'root' })
 export class ChamadosService {
   private readonly STORAGE_KEY = 'chamados_storage';
-
   private chamadosSubject = new BehaviorSubject<ChamadoModel[]>([]);
   chamados$ = this.chamadosSubject.asObservable();
-
   private loaded = false;
 
   constructor(private http: HttpClient) {
@@ -46,17 +44,36 @@ export class ChamadosService {
     return this.chamados$;
   }
 
-  add(chamado: ChamadoModel) {
+  add(chamado: Omit<ChamadoModel, 'id'>) {
     const atual = this.chamadosSubject.value;
 
-    const novoChamado = {
+    const maxId = atual.length ? Math.max(...atual.map((c) => c.id ?? 0)) : 0;
+
+    const novo: ChamadoModel = {
       ...chamado,
-      id: atual.length + 1,
+      id: maxId + 1,
     };
 
-    const atualizado = [...atual, novoChamado];
-
+    const atualizado = [...atual, novo];
     this.chamadosSubject.next(atualizado);
     this.saveToStorage();
+    return novo;
+  }
+
+  update(chamado: ChamadoModel) {
+    const atual = this.chamadosSubject.value.map((c) => (c.id === chamado.id ? chamado : c));
+    this.chamadosSubject.next(atual);
+    this.saveToStorage();
+  }
+
+  remove(id: number) {
+    const atual = this.chamadosSubject.value;
+    const atualizado = atual.filter((c) => c.id !== id);
+    this.chamadosSubject.next(atualizado);
+    this.saveToStorage();
+  }
+
+  getById(id: number): ChamadoModel | undefined {
+    return this.chamadosSubject.value.find((c) => c.id === id);
   }
 }
