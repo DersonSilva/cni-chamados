@@ -50,6 +50,7 @@ export class ListChamados implements OnInit {
   editingChamado: ChamadoModel | null = null;
   filteredCategorias: any[] = [];
   displayDialog = false;
+  originalChamado: ChamadoModel | null = null; // adiciona no componente
 
   filteredChamados = computed(() => {
     const term = this.searchService.searchTerm().trim().toLowerCase();
@@ -101,6 +102,7 @@ export class ListChamados implements OnInit {
 
   openEdit(chamado: ChamadoModel) {
     this.editingChamado = { ...chamado };
+    this.originalChamado = { ...chamado };
     this.displayDialog = true;
   }
 
@@ -112,7 +114,20 @@ export class ListChamados implements OnInit {
   }
 
   saveEdit() {
-    if (!this.editingChamado) return;
+    if (!this.editingChamado || !this.originalChamado) return;
+    const changed =
+      this.editingChamado.titulo !== this.originalChamado.titulo ||
+      this.editingChamado.descricao !== this.originalChamado.descricao ||
+      this.editingChamado.categoria !== this.originalChamado.categoria;
+
+    if (!changed) {
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Nenhuma alteração',
+        detail: 'Nenhum campo foi alterado.',
+      });
+      return;
+    }
 
     this.service.update(this.editingChamado);
 
@@ -122,6 +137,7 @@ export class ListChamados implements OnInit {
 
     this.displayDialog = false;
     this.editingChamado = null;
+    this.originalChamado = null;
 
     this.messageService.add({
       severity: 'success',

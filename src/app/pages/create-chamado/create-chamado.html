@@ -1,7 +1,9 @@
 <p-toast position="top-right"></p-toast>
 
 <div class="flex justify-center items-center min-h-screen">
-  <div class="p-card shadow-lg p-6 w-full max-w-md mx-auto">
+  <div
+    class="p-card shadow-lg p-6 w-full max-w-md mx-auto bg-gradient-to-br from-blue-700 to-blue-950 rounded-2xl"
+  >
     <h2 class="text-2xl font-bold text-center mb-6">Novo Chamado</h2>
 
     <form class="p-fluid space-y-4">
@@ -24,7 +26,7 @@
           id="descricao"
           pInputTextarea
           class="w-full p-inputtext mt-2"
-          rows="4"
+          rows="3"
           [(ngModel)]="chamado.descricao"
           name="descricao"
           required
@@ -47,13 +49,14 @@
         ></p-autoComplete>
       </div>
 
-      <div class="flex items-center gap-4 mt-4">
+      <div class="flex gap-2 mt-4">
         <p-button
           (click)="cancel()"
           label="Cancelar"
           [raised]="true"
           variant="outlined"
           severity="danger"
+          class="w-full md:w-auto"
         />
 
         <p-button
@@ -62,6 +65,7 @@
           [raised]="true"
           variant="outlined"
           severity="success"
+          class="w-full md:w-auto"
         />
       </div>
     </form>

@@ -1,20 +1,13 @@
-<header class="bg-slate-900 text-white shadow-md">
+<header class="bg-blue-950 text-white shadow-md">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center gap-2">
-        <div
-          class="bg-white text-slate-800 w-9 h-9 rounded-full flex items-center justify-center font-bold"
-        >
-          A
+        <div class="bg-white w-9 h-9 rounded-full flex items-center justify-center overflow-hidden">
+          <img src="/images/logo/logo.png" alt="Logo" class="w-6 h-6 object-contain" />
         </div>
-        <span class="font-semibold text-lg tracking-wide">Admin Dashboard</span>
-      </div>
 
-      <ul class="hidden md:flex items-center gap-8 text-sm">
-        <li><a href="#" class="hover:text-blue-400 transition">Chamados</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition">Relatórios</a></li>
-        <li><a href="#" class="hover:text-blue-400 transition">Configurações</a></li>
-      </ul>
+        <span class="font-semibold text-lg tracking-wide">Chamados</span>
+      </div>
 
       <div class="hidden md:flex items-center w-96 relative">
         <i class="pi pi-search text-lg absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
@@ -26,6 +19,11 @@
           class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
       </div>
+      <p-button
+        [icon]="currentTheme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
+        variant="text"
+        (click)="toggleTheme()"
+      ></p-button>
 
       <button class="md:hidden text-white focus:outline-none" (click)="toggleMenu()">
         <svg
@@ -47,34 +45,20 @@
 
     @if (mobileOpen()) {
     <div class="md:hidden border-t border-slate-700 mt-2 animate-fade-in">
-      <ul class="flex flex-col gap-4 py-4 text-sm">
-        <li><a href="#" class="block px-2 hover:text-blue-400">Chamados</a></li>
-        <li><a href="#" class="block px-2 hover:text-blue-400">Relatórios</a></li>
-        <li><a href="#" class="block px-2 hover:text-blue-400">Configurações</a></li>
+      <div class="px-2">
+        <div class="relative mt-2">
+          <i
+            class="pi pi-search text-lg absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
+          ></i>
 
-        <div class="px-2">
-          <div class="relative mt-2">
-            <i
-              class="pi pi-search text-lg absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-            ></i>
-
-            <input
-              type="text"
-              placeholder="Pesquisar chamados..."
-              (input)="onSearch($event)"
-              class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            />
-          </div>
+          <input
+            type="text"
+            placeholder="Pesquisar chamados..."
+            (input)="onSearch($event)"
+            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          />
         </div>
-
-        <div class="px-2">
-          <button
-            class="bg-blue-600 hover:bg-blue-700 w-full py-1.5 rounded-md text-sm font-medium transition"
-          >
-            Admin
-          </button>
-        </div>
-      </ul>
+      </div>
     </div>
     }
   </nav>
