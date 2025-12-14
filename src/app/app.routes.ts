@@ -20,7 +20,6 @@ export const routes: Routes = [
     component: CreateChamado,
   },
 
-  // Rota coringa para segurança
   {
     path: '**',
     redirectTo: 'chamados',

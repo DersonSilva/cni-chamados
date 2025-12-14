@@ -1,59 +1,132 @@
-# CniChamados
+# 📋 CNI Chamados — Gerenciamento de Chamados Corporativos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Aplicação web responsiva desenvolvida em Angular para gerenciamento de chamados de serviço corporativos.  
+O sistema permite **listar, cadastrar, editar, excluir e pesquisar chamados em tempo real**, oferecendo uma interface simples, organizada e acessível, construída com tecnologias modernas de front-end.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🎯 Objetivo do Projeto
+
+Desenvolver uma aplicação web responsiva para gerenciamento de chamados de serviço corporativos, com foco em:
+
+- Interface funcional e intuitiva
+- Organização e boas práticas de código
+- Simulação de dados sem dependência de backend
+- Facilidade de avaliação e execução local
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+- 📄 Listagem de chamados de serviço
+  - Exibição de ID, título, descrição, categoria e data de criação
+- ➕ Cadastro de novos chamados
+- ✏️ Edição de chamados existentes
+- 🗑️ Exclusão de chamados com confirmação
+- 🔍 Pesquisa e filtro de chamados em tempo real
+  - Filtragem instantânea conforme o usuário digita
+- 📅 Data de criação gerada automaticamente
+- 🔔 Feedback visual ao usuário (sucesso, alerta e validações)
+- 📱 Interface totalmente responsiva (desktop e mobile)
+- 🌗 Suporte a tema claro e escuro (Light / Dark Mode)
+
+---
+
+## 🧪 Simulação de Dados
+
+A aplicação utiliza dados simulados através de:
+
+- Arquivo JSON inicial
+- Persistência em LocalStorage
+- Serviço Angular simulando uma API local
+
+Não há dependência de backend, facilitando testes, avaliação e execução local.
+
+---
+
+## 🎨 UI / UX e Acessibilidade
+
+- Componentes de UI utilizando **PrimeNG**
+- Layout responsivo
+- Interface simples, clara e intuitiva
+- Feedback visual para ações do usuário
+- Navegação direta entre telas
+- Uso de padrões visuais consistentes para melhor experiência do usuário
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+- **Angular CLI: 21.0.3**
+- **Angular Framework: 21.0.3**
+- **TypeScript**
+- **PrimeNG**
+- **PrimeIcons**
+- **Tailwind CSS**
+- **HTML5**
+- **CSS3**
+- **LocalStorage**
+- **RxJS**
+- **Git e GitHub**
+
+### Justificativa das escolhas
+
+- **Angular**: Framework robusto, escalável e amplamente utilizado em aplicações corporativas
+- **PrimeNG**: Biblioteca de componentes rica, acessível e produtiva
+- **Tailwind CSS**: Framework utilitário que permite construção rápida de layouts responsivos, maior controle visual direto no template e redução de CSS customizado, facilitando manutenção e padronização da interface
+- **LocalStorage**: Permite simular persistência de dados sem backend
+- **TypeScript**: Tipagem forte e maior segurança no desenvolvimento
+
+---
+
+## 🧭 Navegação da Aplicação
+
+- `/chamados` → Listagem de chamados
+- `/chamados/novo` → Cadastro de novo chamado
+
+---
+
+## 🤖 Uso de Inteligência Artificial e Ferramentas de Apoio
+
+Durante o desenvolvimento deste projeto, foram utilizadas ferramentas de apoio baseadas em Inteligência Artificial (como ChatGPT) de forma pontual, com o objetivo de:
+
+- Esclarecimento de dúvidas conceituais
+- Apoio na revisão de trechos de código
+- Sugestão de melhorias de organização e boas práticas
+- Aceleração de tarefas repetitivas ou estruturais
+
+Todas as decisões técnicas, arquitetura da aplicação, organização de pastas, fluxos, regras de negócio e ajustes finais de código foram realizadas e validadas pelo desenvolvedor, garantindo total compreensão e domínio sobre a solução entregue.
+
+---
+
+## 📊 Percentual Estimado de Autoria
+
+- Código desenvolvido pelo autor: **70%**
+- Código com apoio de ferramentas de IA: **30%**
+
+A Inteligência Artificial foi utilizada como ferramenta de suporte e aceleração, sem substituir o raciocínio técnico, a tomada de decisões ou a implementação final.
+
+---
+
+## ⚙️ Instalação e Execução do Projeto
+
+### Pré-requisitos
+
+- Node.js (versão LTS recomendada)
+- Angular CLI instalado globalmente
+
+### Passo a passo
 
 ```bash
+# Clonar o repositório
+git clone https://github.com/DersonSilva/cni-chamados.git
+
+# Entrar na pasta do projeto
+cd cni-chamados
+
+# Instalar as dependências
+npm install
+
+# Executar o projeto
 ng serve
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

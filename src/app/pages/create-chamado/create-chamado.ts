@@ -7,7 +7,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ChamadoModel } from '../../core/models/chamado.model';
 import { RouterModule, Router } from '@angular/router';
-import { ChamadosService } from '../../core/services/chamados';
+import { ChamadosService } from '../../core/services/chamados.service';
 
 @Component({
   selector: 'app-create-chamado',

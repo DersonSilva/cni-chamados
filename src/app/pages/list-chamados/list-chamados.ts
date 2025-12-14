@@ -12,7 +12,7 @@ import { ConfirmEventType, ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { signal } from '@angular/core';
 
-import { ChamadosService } from '../../core/services/chamados';
+import { ChamadosService } from '../../core/services/chamados.service';
 import { ChamadoModel } from '../../core/models/chamado.model';
 import { SearchService } from '../../core/services/search.service';
 import { ConfirmDialog } from 'primeng/confirmdialog';
