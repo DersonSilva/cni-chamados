@@ -3,4 +3,5 @@ export interface ChamadoModel {
   titulo: string;
   descricao: string;
   categoria: string;
+  createdAt?: string;
 }

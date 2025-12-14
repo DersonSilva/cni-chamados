@@ -1,4 +1,4 @@
-<header class="bg-blue-950 text-white shadow-md">
+<header class="bg-gradient-to-br from-blue-700 to-blue-950 text-white shadow-md">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <div class="flex items-center gap-2">
@@ -9,9 +9,9 @@
         <span class="font-semibold text-lg tracking-wide">Chamados</span>
       </div>
 
+      @if (showSearch()) {
       <div class="hidden md:flex items-center w-96 relative">
         <i class="pi pi-search text-lg absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
-
         <input
           type="text"
           placeholder="Pesquisar chamados..."
@@ -19,12 +19,14 @@
           class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
       </div>
+      }
       <p-button
         [icon]="currentTheme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
         variant="text"
         (click)="toggleTheme()"
       ></p-button>
 
+      @if (showSearch()) {
       <button class="md:hidden text-white focus:outline-none" (click)="toggleMenu()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +43,7 @@
           />
         </svg>
       </button>
+      }
     </div>
 
     @if (mobileOpen()) {

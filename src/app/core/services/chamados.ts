@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, take } from 'rxjs';
+import { BehaviorSubject, Observable, take, of } from 'rxjs';
 import { ChamadoModel } from '../models/chamado.model';
 
 @Injectable({ providedIn: 'root' })
@@ -44,20 +44,19 @@ export class ChamadosService {
     return this.chamados$;
   }
 
-  add(chamado: Omit<ChamadoModel, 'id'>) {
+  add(chamado: Omit<ChamadoModel, 'id'>): Observable<ChamadoModel> {
     const atual = this.chamadosSubject.value;
-
     const maxId = atual.length ? Math.max(...atual.map((c) => c.id ?? 0)) : 0;
 
     const novo: ChamadoModel = {
       ...chamado,
       id: maxId + 1,
+      createdAt: new Date().toISOString(),
     };
-
-    const atualizado = [...atual, novo];
+    const atualizado = [novo, ...atual];
     this.chamadosSubject.next(atualizado);
     this.saveToStorage();
-    return novo;
+    return of(novo);
   }
 
   update(chamado: ChamadoModel) {

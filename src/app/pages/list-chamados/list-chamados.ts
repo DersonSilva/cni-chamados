@@ -50,7 +50,7 @@ export class ListChamados implements OnInit {
   editingChamado: ChamadoModel | null = null;
   filteredCategorias: any[] = [];
   displayDialog = false;
-  originalChamado: ChamadoModel | null = null; // adiciona no componente
+  originalChamado: ChamadoModel | null = null;
 
   filteredChamados = computed(() => {
     const term = this.searchService.searchTerm().trim().toLowerCase();
@@ -142,12 +142,12 @@ export class ListChamados implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Sucesso',
-      detail: 'Chamado atualizado!',
+      detail: 'Chamado atualizado com sucesso!',
     });
   }
   confirmDelete(chamado: ChamadoModel) {
     this.confirmation.confirm({
-      message: `"${chamado.titulo}"? Esta ação é irreversível.`,
+      message: `"${chamado.titulo}" Esta ação é irreversível.`,
       header: 'Deseja realmente excluir?',
       icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Sim',
@@ -158,7 +158,7 @@ export class ListChamados implements OnInit {
         this.messageService.add({
           severity: 'success',
           summary: 'Excluído',
-          detail: `${chamado.titulo} excluído com sucesso.`,
+          detail: `${chamado.titulo} excluído com sucesso!`,
         });
       },
       reject: () => {},

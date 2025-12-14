@@ -1,8 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchService } from '../../../core/services/search.service';
 import { ThemeService } from '../../../core/services/theme.service';
 import { ButtonModule } from 'primeng/button';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -10,13 +12,14 @@ import { ButtonModule } from 'primeng/button';
   imports: [CommonModule, ButtonModule],
   templateUrl: './header.html',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   private searchService = inject(SearchService);
   private themeService = inject(ThemeService);
+  private router = inject(Router);
 
-  private timeout: any;
   mobileOpen = signal(false);
   currentTheme: 'light' | 'dark' = 'light';
+  showSearch = signal(true);
 
   onSearch(event: any) {
     this.searchService.searchTerm.set(event.target.value);
@@ -37,5 +40,10 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.updateTheme();
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.showSearch.set(event.url !== '/chamados/novo');
+      });
   }
 }

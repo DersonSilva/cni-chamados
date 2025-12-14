@@ -51,17 +51,23 @@ export class CreateChamado {
       return;
     }
 
-    this.service.add(this.chamado);
+    this.service
+      .add({
+        titulo: this.chamado.titulo,
+        descricao: this.chamado.descricao,
+        categoria: this.chamado.categoria,
+      })
+      .subscribe(() => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Sucesso',
+          detail: 'Chamado salvo com sucesso!',
+        });
 
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Sucesso',
-      detail: 'Chamado salvo com sucesso!',
-    });
-
-    setTimeout(() => {
-      this.router.navigate(['/chamados']);
-    }, 700);
+        setTimeout(() => {
+          this.router.navigate(['/chamados']);
+        }, 900);
+      });
   }
 
   cancel() {
