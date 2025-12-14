@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.showSearch.set(event.url !== '/chamados/novo');
+        this.mobileOpen.set(false);
       });
   }
 }

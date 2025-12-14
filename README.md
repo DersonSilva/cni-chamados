@@ -20,6 +20,7 @@ Desenvolver uma aplicação web responsiva para gerenciamento de chamados de ser
 
 - 📄 Listagem de chamados de serviço
   - Exibição de ID, título, descrição, categoria e data de criação
+    - **Paginação automática** quando a lista ultrapassa 10 chamados
 - ➕ Cadastro de novos chamados
 - ✏️ Edição de chamados existentes
 - 🗑️ Exclusão de chamados com confirmação

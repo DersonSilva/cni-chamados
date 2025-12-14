@@ -15,6 +15,7 @@
           pInputText
           [(ngModel)]="chamado.titulo"
           name="titulo"
+          placeholder="Ex: Erro ao fazer login"
           required
           class="w-full mt-2"
         />
@@ -29,6 +30,7 @@
           rows="3"
           [(ngModel)]="chamado.descricao"
           name="descricao"
+          placeholder="Ex: Usuário não consegue acessar o sistema"
           required
         ></textarea>
       </div>
@@ -45,7 +47,7 @@
           [dropdown]="true"
           [readonly]="true"
           placeholder="Selecione a categoria"
-          class="w-full"
+          class="w-full mt-2"
         ></p-autoComplete>
       </div>
 

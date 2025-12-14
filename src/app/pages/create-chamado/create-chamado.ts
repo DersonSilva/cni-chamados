@@ -61,7 +61,7 @@ export class CreateChamado {
         this.messageService.add({
           severity: 'success',
           summary: 'Sucesso',
-          detail: 'Chamado salvo com sucesso!',
+          detail: 'Chamado criado com sucesso!',
         });
 
         setTimeout(() => {
