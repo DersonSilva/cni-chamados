@@ -47,11 +47,43 @@ Não há dependência de backend, facilitando testes, avaliação e execução l
 ## 🎨 UI / UX e Acessibilidade
 
 - Componentes de UI utilizando **PrimeNG**
-- Layout responsivo
+- Uso de **PrimeIcons** para padronização visual
+- Layout responsivo com **Tailwind CSS**
 - Interface simples, clara e intuitiva
 - Feedback visual para ações do usuário
 - Navegação direta entre telas
 - Uso de padrões visuais consistentes para melhor experiência do usuário
+
+---
+
+## 🧱 Organização e Arquitetura
+
+A aplicação foi estruturada seguindo boas práticas do Angular, com separação clara de responsabilidades:
+
+- **Core**  
+  Contém modelos, serviços e regras centrais da aplicação (ex.: serviços de chamados e tema).
+
+- **Pages**  
+  Componentes de páginas principais, como listagem e criação de chamados.
+
+- **Shared**  
+  Componentes reutilizáveis da aplicação, como o header (navbar).
+
+- **Services**  
+  Responsáveis pela simulação de persistência de dados e regras de negócio, utilizando LocalStorage.
+
+Essa organização prioriza **legibilidade, reutilização de código, escalabilidade e fácil manutenção**.
+
+---
+
+## 🧠 Decisões Técnicas Relevantes
+
+- Uso de **Standalone Components**, reduzindo boilerplate e simplificando a estrutura
+- Uso do **novo Control Flow do Angular (`@if`)** e **Signals**, alinhado às versões mais recentes do framework
+- Persistência de dados via **LocalStorage**, simulando um backend sem dependências externas
+- Implementação de **tema claro e escuro** utilizando PrimeNG (Aura) e controle centralizado de tema
+- Implementação de **filtro em tempo real** para melhorar a experiência do usuário
+- Combinação de **PrimeNG + Tailwind CSS**, equilibrando produtividade, consistência visual e flexibilidade
 
 ---
 
@@ -101,8 +133,8 @@ Todas as decisões técnicas, arquitetura da aplicação, organização de pasta
 
 ## 📊 Percentual Estimado de Autoria
 
-- Código desenvolvido pelo autor: **70%**
-- Código com apoio de ferramentas de IA: **30%**
+- Código desenvolvido pelo autor: **60%**
+- Código com apoio de ferramentas de IA: **40%**
 
 A Inteligência Artificial foi utilizada como ferramenta de suporte e aceleração, sem substituir o raciocínio técnico, a tomada de decisões ou a implementação final.
 

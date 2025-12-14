@@ -125,6 +125,7 @@ export class ListChamados implements OnInit {
         severity: 'info',
         summary: 'Nenhuma alteração',
         detail: 'Nenhum campo foi alterado.',
+        styleClass: 'responsive-toast',
       });
       return;
     }

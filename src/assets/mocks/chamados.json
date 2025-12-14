@@ -7,8 +7,14 @@
   },
   {
     "id": 2,
-    "titulo": "Atualizar servidor",
-    "descricao": "Atualização pendente",
-    "categoria": "Infra"
+    "titulo": "Problema no servidor",
+    "descricao": "Servidor de aplicação não está respondendo corretamente",
+    "categoria": "TI"
+  },
+  {
+    "id": 3,
+    "titulo": "Solicitação de férias",
+    "descricao": "Funcionário solicitou aprovação de férias para o próximo mês",
+    "categoria": "RH"
   }
 ]

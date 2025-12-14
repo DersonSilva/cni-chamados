@@ -1,0 +1,4 @@
+:host ::ng-deep .responsive-toast {
+  width: 90vw;
+  max-width: 420px;
+}
